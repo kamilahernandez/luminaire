@@ -139,10 +139,13 @@ scheduler can trigger the reminder route, not the open internet).
   and review emails **cannot work for real customers** until a domain is
   bought and verified in Resend. Studio-facing notification emails work
   fine already since they go to the Resend account's own address.
-- Vercel's free "Hobby" plan may limit how often a Cron Job can fire — need
-  to confirm this actually supports the timing precision we need once we
-  get to that step; a small workaround exists if not (e.g. an external free
-  cron pinging the route hourly).
+- **Confirmed by deploying:** Vercel's free "Hobby" plan only allows Cron
+  Jobs to run once per day, not hourly. Resolved by switching
+  `vercel.json` to run once daily at 13:00 UTC (~8-9am Eastern depending on
+  daylight saving). The 48-hour reminder is unaffected; the "leave a
+  review" email (meant to go out 1 hour after the appointment) may now go
+  out later the same day instead of exactly 1 hour after, depending on
+  when in the day the appointment was.
 
 ## What "done" looks like
 - `npm run build` succeeds with no TypeScript errors
