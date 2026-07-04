@@ -6,7 +6,7 @@ import type { Booking, Client } from "@/lib/types/booking";
 function getResendClient() {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    throw new Error("Missing RESEND_API_KEY in .env.local.");
+    throw new Error("Missing RESEND_API_KEY environment variable (in .env.local locally, or your hosting provider's environment variable settings).");
   }
   return new Resend(apiKey);
 }
@@ -18,7 +18,7 @@ function getFromAddress() {
 function getSiteUrl() {
   const siteUrl = process.env.SITE_URL;
   if (!siteUrl) {
-    throw new Error("Missing SITE_URL in .env.local.");
+    throw new Error("Missing SITE_URL environment variable (in .env.local locally, or your hosting provider's environment variable settings).");
   }
   return siteUrl;
 }

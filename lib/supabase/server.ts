@@ -9,7 +9,7 @@ export function getSupabaseServerClient() {
 
   if (!url || !serviceRoleKey) {
     throw new Error(
-      "Missing Supabase env vars. Check NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in .env.local."
+      "Missing Supabase environment variables — check NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY (in .env.local locally, or your hosting provider's environment variable settings)."
     );
   }
 
