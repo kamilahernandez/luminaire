@@ -1,6 +1,11 @@
+"use client";
+
+import { useNewsletterPopup } from "@/components/marketing/NewsletterPopupProvider";
+
 const MESSAGE = "Follow us on Instagram for 10% off your first service";
 
 export function AnnouncementBar() {
+  const { open } = useNewsletterPopup();
   const item = (
     <span className="inline-flex items-center">
       <span className="font-body text-[12.5px] font-medium uppercase tracking-[1.2px] text-cream-100">
@@ -16,7 +21,12 @@ export function AnnouncementBar() {
   ));
 
   return (
-    <div role="marquee" className="w-full overflow-hidden bg-mocha-900 py-2">
+    <button
+      type="button"
+      onClick={open}
+      aria-label="Get 10% off — open newsletter signup"
+      className="block w-full overflow-hidden bg-mocha-900 py-2 text-left"
+    >
       <div
         className="flex w-max"
         style={{ animation: "lum-marquee-rtl 26s linear infinite" }}
@@ -24,6 +34,6 @@ export function AnnouncementBar() {
         <div className="flex">{copy}</div>
         <div className="flex">{copy}</div>
       </div>
-    </div>
+    </button>
   );
 }

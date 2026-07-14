@@ -10,6 +10,7 @@ import { Button } from "@/components/core/Button";
 const LINKS = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
+  { label: "Deals", href: "/deals" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/booking" },
 ];

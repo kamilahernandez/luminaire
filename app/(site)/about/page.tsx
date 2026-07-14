@@ -82,6 +82,59 @@ export default function AboutPage() {
         </RevealGroup>
       </section>
 
+      {/* Founder */}
+      <section className="mx-auto max-w-[1240px] px-6 py-16 sm:px-8 lg:py-[92px]">
+        <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+          <Reveal y={0} className="relative aspect-[4/5] overflow-hidden rounded-[40px] shadow-[var(--shadow-lg)]">
+            <Image
+              src="/images/about-founder-gil.jpg"
+              alt="Gil, founder"
+              fill
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              className="object-cover"
+            />
+          </Reveal>
+          <div className="flex flex-col gap-4">
+            <Reveal>
+              <span className="text-xs uppercase tracking-[2.5px] text-gold-700">About Me</span>
+            </Reveal>
+            <Reveal delay={0.08} as="h2" className="font-display text-[40px] font-semibold leading-[1.12] tracking-[-0.5px] text-mocha-900">
+              Hi there, I&rsquo;m Gil
+            </Reveal>
+            <RevealGroup className="flex max-w-[560px] flex-col gap-4">
+              <p className="m-0 font-body text-base leading-[1.65] text-mocha-600">
+                I&rsquo;m a licensed esthetician and the founder of Princess Touch
+                Aesthetics. My passion lies in helping women of all backgrounds
+                feel beautiful, confident, and cared for — because beauty has no
+                single look, and every woman deserves to feel seen.
+              </p>
+              <p className="m-0 font-body text-base leading-[1.65] text-mocha-600">
+                I created this space not just as a spa, but as a sanctuary. In
+                today&rsquo;s fast-paced world, women are constantly giving to
+                others. I believe it&rsquo;s just as important to give back to
+                ourselves — so every service is designed to help you slow down,
+                unwind, and reconnect with your sense of self.
+              </p>
+              <p className="m-0 font-body text-base leading-[1.65] text-mocha-600">
+                I specialize in natural-looking lash sets that are as
+                long-lasting as they are stunning, with a unique Brazilian Lash
+                Extension Technique built for speed and precision. More than
+                anything, I want you to leave my chair not just looking amazing,
+                but feeling refreshed, empowered, and at peace.
+              </p>
+            </RevealGroup>
+            <Reveal>
+              <p className="m-0 font-script text-[38px] leading-none text-gold-700">— Gil</p>
+            </Reveal>
+            <Reveal className="mt-1.5">
+              <Button href="/booking" variant="primary" size="lg" icon="↗">
+                Book your appointment
+              </Button>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* Brazilian Classic */}
       <section className="bg-cream-200">
         <div className="mx-auto grid max-w-[1240px] gap-14 px-6 py-16 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:py-[92px]">
@@ -132,59 +185,6 @@ export default function AboutPage() {
                 </figcaption>
               </Reveal>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Founder */}
-      <section className="mx-auto max-w-[1240px] px-6 py-16 sm:px-8 lg:py-[92px]">
-        <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-          <Reveal y={0} className="relative aspect-[4/5] overflow-hidden rounded-[40px] shadow-[var(--shadow-lg)]">
-            <Image
-              src="/images/about-founder-gil.jpg"
-              alt="Gil, founder"
-              fill
-              sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover"
-            />
-          </Reveal>
-          <div className="flex flex-col gap-4">
-            <Reveal>
-              <span className="text-xs uppercase tracking-[2.5px] text-gold-700">About Me</span>
-            </Reveal>
-            <Reveal delay={0.08} as="h2" className="font-display text-[40px] font-semibold leading-[1.12] tracking-[-0.5px] text-mocha-900">
-              Hi there, I&rsquo;m Gil
-            </Reveal>
-            <RevealGroup className="flex max-w-[560px] flex-col gap-4">
-              <p className="m-0 font-body text-base leading-[1.65] text-mocha-600">
-                I&rsquo;m a licensed esthetician and the founder of Princess Touch
-                Aesthetics. My passion lies in helping women of all backgrounds
-                feel beautiful, confident, and cared for — because beauty has no
-                single look, and every woman deserves to feel seen.
-              </p>
-              <p className="m-0 font-body text-base leading-[1.65] text-mocha-600">
-                I created this space not just as a spa, but as a sanctuary. In
-                today&rsquo;s fast-paced world, women are constantly giving to
-                others. I believe it&rsquo;s just as important to give back to
-                ourselves — so every service is designed to help you slow down,
-                unwind, and reconnect with your sense of self.
-              </p>
-              <p className="m-0 font-body text-base leading-[1.65] text-mocha-600">
-                I specialize in natural-looking lash sets that are as
-                long-lasting as they are stunning, with a unique Brazilian Lash
-                Extension Technique built for speed and precision. More than
-                anything, I want you to leave my chair not just looking amazing,
-                but feeling refreshed, empowered, and at peace.
-              </p>
-            </RevealGroup>
-            <Reveal>
-              <p className="m-0 font-script text-[38px] leading-none text-gold-700">— Gil</p>
-            </Reveal>
-            <Reveal className="mt-1.5">
-              <Button href="/booking" variant="primary" size="lg" icon="↗">
-                Book your appointment
-              </Button>
-            </Reveal>
           </div>
         </div>
       </section>

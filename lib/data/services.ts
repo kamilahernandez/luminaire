@@ -17,6 +17,89 @@ export const FACIALS: PriceGroup[] = [
   },
 ];
 
+export type Treatment = { name: string; description: string; tagline?: string; image?: string };
+
+export const FACIAL_TREATMENTS: Treatment[] = [
+  {
+    name: "Signature Facial",
+    description:
+      "A personalized facial that cleanses, hydrates, and refreshes the skin. Ideal when your skin needs a reset or regular maintenance glow.",
+    image: "/images/treatment-facial-signature.jpg",
+  },
+  {
+    name: "Facial with LED Light Therapy",
+    description:
+      "A calming facial paired with LED light to support clearer, healthier-looking skin. Great for acne-prone, sensitive, inflamed, or tired skin.",
+    image: "/images/treatment-facial-led-light-therapy.jpg",
+  },
+  {
+    name: "Hydra Gloss Lips Treatment",
+    description:
+      "A smoothing lip treatment that exfoliates, hydrates, and restores softness. Perfect for dry, dull, or chapped lips.",
+    image: "/images/treatment-facial-hydra-gloss-lips.jpg",
+  },
+  {
+    name: "Dermaplaning",
+    description:
+      "A gentle exfoliating treatment that removes peach fuzz and dead skin buildup. Great for dull skin, rough texture, or smoother makeup application.",
+    image: "/images/treatment-facial-dermaplaning.jpg",
+  },
+  {
+    name: "Image Skincare Peel",
+    description:
+      "A professional peel that helps improve tone, texture, breakouts, and dullness. Great for uneven skin, congestion, pigmentation, or early signs of aging.",
+    image: "/images/treatment-facial-image-skincare-peel.jpg",
+  },
+  {
+    name: "Rose de Mer Peel",
+    description:
+      "A natural resurfacing peel designed to renew and refine the skin. Great for acne scars, discoloration, rough texture, and uneven tone.",
+    image: "/images/treatment-facial-rose-de-mer-peel.jpg",
+  },
+  {
+    name: "Microneedling",
+    description:
+      "A collagen-stimulating treatment that helps improve scars, fine lines, and texture. Great for smoother, firmer-looking skin over time.",
+    image: "/images/treatment-facial-microneedling.jpg",
+  },
+  {
+    name: "Geneo Facial",
+    description:
+      "A glow-focused facial that exfoliates, oxygenates, and nourishes the skin. Great for dull, tired, or dehydrated skin.",
+    image: "/images/treatment-facial-geneo.jpg",
+  },
+  {
+    name: "HydraFacial with LED Light Therapy",
+    description:
+      "A deep-cleansing, hydrating facial paired with LED light therapy. Great for congestion, dryness, dullness, and skin that needs an instant glow.",
+    image: "/images/treatment-facial-hydrafacial.jpg",
+  },
+];
+
+export const LASH_TREATMENTS: Treatment[] = [
+  {
+    name: "Classic",
+    description:
+      "A one-to-one extension technique that enhances your natural lashes with soft length and definition.",
+    tagline: "Natural coverage • Everyday enhancement",
+    image: "/images/treatment-lash-classic.jpg",
+  },
+  {
+    name: "Hybrid",
+    description:
+      "A blend of classic and volume lashes that creates balanced fullness with added texture.",
+    tagline: "Soft glam • Most requested style",
+    image: "/images/treatment-lash-hybrid.jpg",
+  },
+  {
+    name: "Mega Volume",
+    description:
+      "A high-density lash set designed to deliver maximum fullness, depth, and drama.",
+    tagline: "Bold definition • Most dramatic result",
+    image: "/images/treatment-lash-mega-volume.jpg",
+  },
+];
+
 export const LASHES: PriceGroup[] = [
   {
     label: "Full Set",
@@ -105,28 +188,45 @@ export const BUNDLES: Bundle[] = [
   },
 ];
 
-export const BOOKING_SERVICE_OPTIONS = [
-  "Signature Facial",
-  "Facial with LED Light Therapy",
-  "Hydra Gloss Lips",
-  "Dermaplaning",
-  "Image Skincare Peel",
-  "Rose de Mer Peel",
-  "Microneedling",
-  "Geneo Facial",
-  "Hydrafacial with LED",
-  "Eyelash Extensions — Classic",
-  "Eyelash Extensions — Hybrid",
-  "Eyelash Extensions — Mega Volume",
-  "Lash Maintenance",
-  "Eyebrow Shaping",
-  "Eyebrow Shaping with Henna",
-  "Laser Hair Removal (IPL)",
-  "Bundle — Glow & Define",
-  "Bundle — Smooth & Clean",
-  "Bundle — Geneo Glow",
-  "Bundle — Peel & Perfect",
+export const BOOKING_SERVICE_GROUPS: { label: string; options: string[] }[] = [
+  {
+    label: "Facials",
+    options: [
+      "Signature Facial",
+      "Facial with LED Light Therapy",
+      "Hydra Gloss Lips",
+      "Dermaplaning",
+      "Image Skincare Peel",
+      "Rose de Mer Peel",
+      "Microneedling",
+      "Geneo Facial",
+      "Hydrafacial with LED",
+    ],
+  },
+  {
+    label: "Lashes & Brows",
+    options: [
+      "Eyelash Extensions — Classic",
+      "Eyelash Extensions — Hybrid",
+      "Eyelash Extensions — Mega Volume",
+      "Lash Maintenance",
+      "Eyebrow Shaping",
+      "Eyebrow Shaping with Henna",
+    ],
+  },
+  {
+    label: "Laser & Bundles",
+    options: [
+      "Laser Hair Removal (IPL)",
+      "Bundle — Glow & Define",
+      "Bundle — Smooth & Clean",
+      "Bundle — Geneo Glow",
+      "Bundle — Peel & Perfect",
+    ],
+  },
 ];
+
+export const BOOKING_SERVICE_OPTIONS = BOOKING_SERVICE_GROUPS.flatMap((g) => g.options);
 
 export const BOOKING_TIME_OPTIONS = [
   "9:00 AM",

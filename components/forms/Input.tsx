@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState } from "react";
+import { forwardRef, useId, useState } from "react";
 import clsx from "clsx";
 import type { InputHTMLAttributes, ReactNode } from "react";
 
@@ -11,7 +11,10 @@ type Props = InputHTMLAttributes<HTMLInputElement> & {
   icon?: ReactNode;
 };
 
-export function Input({ label, hint, error, icon, id, className, ...rest }: Props) {
+export const Input = forwardRef<HTMLInputElement, Props>(function Input(
+  { label, hint, error, icon, id, className, ...rest },
+  ref
+) {
   const [focused, setFocused] = useState(false);
   const autoId = useId();
   const inputId = id || autoId;
@@ -38,6 +41,7 @@ export function Input({ label, hint, error, icon, id, className, ...rest }: Prop
       >
         {icon && <span aria-hidden className="inline-flex text-mocha-400">{icon}</span>}
         <input
+          ref={ref}
           id={inputId}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
@@ -55,4 +59,4 @@ export function Input({ label, hint, error, icon, id, className, ...rest }: Prop
       )}
     </div>
   );
-}
+});

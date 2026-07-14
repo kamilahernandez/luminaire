@@ -8,6 +8,7 @@ export function SectionHeading({
   align = "center",
   tone = "ink",
   size = "lg",
+  maxWidth = "640px",
 }: {
   overline?: string;
   title: ReactNode;
@@ -15,12 +16,14 @@ export function SectionHeading({
   align?: "center" | "left";
   tone?: "ink" | "light";
   size?: "md" | "lg";
+  maxWidth?: string;
 }) {
   const onDark = tone === "light";
   return (
     <div
+      style={{ maxWidth }}
       className={clsx(
-        "flex max-w-[640px] flex-col gap-3",
+        "flex flex-col gap-3",
         align === "center" ? "mx-auto items-center text-center" : "items-start text-left"
       )}
     >

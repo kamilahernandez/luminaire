@@ -143,3 +143,12 @@ img {
     scroll-behavior: auto;
   }
 }
+
+/* ---------- Horizontal carousels (treatment gallery) ---------- */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

@@ -1,20 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { Input } from "@/components/forms/Input";
 import { Select } from "@/components/forms/Select";
 import { Textarea } from "@/components/forms/Textarea";
-import { CheckboxPills } from "@/components/forms/CheckboxPills";
+import { CheckboxDropdown } from "@/components/forms/CheckboxDropdown";
 import { Button } from "@/components/core/Button";
 import { Badge } from "@/components/core/Badge";
 import { Reveal } from "@/components/animation/Reveal";
-import { BOOKING_SERVICE_OPTIONS, BOOKING_TIME_OPTIONS } from "@/lib/data/services";
+import { BOOKING_SERVICE_OPTIONS, BOOKING_SERVICE_GROUPS, BOOKING_TIME_OPTIONS } from "@/lib/data/services";
 
 export function BookingForm() {
-  const [service, setService] = useState(BOOKING_SERVICE_OPTIONS[0]);
+  return (
+    <Suspense fallback={null}>
+      <BookingFormContent />
+    </Suspense>
+  );
+}
+
+function BookingFormContent() {
+  const searchParams = useSearchParams();
+  const requestedService = searchParams.get("service");
+  const initialService =
+    requestedService && BOOKING_SERVICE_OPTIONS.includes(requestedService)
+      ? requestedService
+      : BOOKING_SERVICE_OPTIONS[0];
+
+  const [service, setService] = useState(initialService);
   const [time, setTime] = useState(BOOKING_TIME_OPTIONS[1]);
   const [addOns, setAddOns] = useState<string[]>([]);
+  const [addOnsOpen, setAddOnsOpen] = useState(false);
   const [done, setDone] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -119,11 +136,16 @@ export function BookingForm() {
               options={BOOKING_TIME_OPTIONS}
             />
             <div className="sm:col-span-2">
-              <CheckboxPills
+              <CheckboxDropdown
                 label="Additional services (optional)"
-                options={BOOKING_SERVICE_OPTIONS.filter((o) => o !== service)}
+                placeholder="Select any add-ons"
+                groups={BOOKING_SERVICE_GROUPS.map((group) => ({
+                  ...group,
+                  options: group.options.filter((o) => o !== service),
+                })).filter((group) => group.options.length > 0)}
                 selected={addOns}
                 onChange={setAddOns}
+                onOpenChange={setAddOnsOpen}
               />
             </div>
             <div className="sm:col-span-2">
@@ -133,11 +155,13 @@ export function BookingForm() {
           {error && (
             <p className="mt-4 font-body text-sm text-[#b8625a]">{error}</p>
           )}
-          <Reveal delay={0.3} className="mt-[26px]">
-            <Button type="submit" variant="primary" size="lg" icon="↗" disabled={submitting}>
-              {submitting ? "Sending…" : "Request appointment"}
-            </Button>
-          </Reveal>
+          {!addOnsOpen && (
+            <Reveal delay={0.3} className="mt-[26px]">
+              <Button type="submit" variant="primary" size="lg" icon="↗" disabled={submitting}>
+                {submitting ? "Sending…" : "Request appointment"}
+              </Button>
+            </Reveal>
+          )}
         </form>
       </div>
 

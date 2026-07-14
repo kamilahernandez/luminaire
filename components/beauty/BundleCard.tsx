@@ -58,7 +58,12 @@ export function BundleCard({ name, price, items, featured = false }: Bundle) {
         ))}
       </ul>
       <div className="mt-auto pt-1">
-        <Button href="/booking" variant={featured ? "on-dark" : "secondary"} size="sm" full>
+        <Button
+          href={`/booking?service=${encodeURIComponent(`Bundle — ${name}`)}`}
+          variant={featured ? "on-dark" : "secondary"}
+          size="sm"
+          full
+        >
           Book this bundle
         </Button>
       </div>

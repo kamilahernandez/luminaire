@@ -60,8 +60,19 @@ export function Footer() {
           </div>
         ))}
       </div>
-      <div className="mx-auto mt-10 flex max-w-[1240px] flex-wrap justify-between gap-3 border-t border-black/[0.08] pt-[22px] font-body text-[12.5px] text-mocha-400">
+      <div className="mx-auto mt-10 flex max-w-[1240px] flex-col items-center gap-4 border-t border-black/[0.08] pt-[22px] font-body text-[12.5px] text-mocha-400 sm:flex-row sm:flex-wrap sm:justify-between">
         <span>© 2026 Lumière Lash &amp; Beauty Studio</span>
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+          <Link href="/privacy-policy" className="text-mocha-400 no-underline hover:text-gold-700">
+            Privacy Policy
+          </Link>
+          <Link href="/cookie-policy" className="text-mocha-400 no-underline hover:text-gold-700">
+            Cookie Policy
+          </Link>
+          <Link href="/terms-and-conditions" className="text-mocha-400 no-underline hover:text-gold-700">
+            Terms &amp; Conditions
+          </Link>
+        </div>
         <span>
           {STUDIO.address} · {STUDIO.phone}
         </span>
